@@ -1,0 +1,20 @@
+.welcome {
+  margin:  10px 0 30px 0;
+  text-align: center;
+  color: rgb(36, 36, 48);
+}
+
+.control-select label {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+fieldset legend {
+  color: #147b73;
+  font-weight: bold;
+}
+
+.submit {
+  width: 400px;
+  background-color: #1877F2;;
+}
