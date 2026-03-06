@@ -4,7 +4,14 @@ export default function Signup() {
   function handelSubmit(event) {
     event.preventDefault();
 
-    
+    const fd = new FormData(event.target);
+    const acquisitionChannel = fd.getAll("acquisition");
+    var termsAgreed = fd.get("terms");
+    const data = Object.fromEntries(fd.entries());
+    data.acquisitionChannel = acquisitionChannel;
+    data.termsAgreed = termsAgreed;
+    console.log(data);
+
   }
   return (
     <form onSubmit={handelSubmit} className="signup-form">
