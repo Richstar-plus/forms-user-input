@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Login.css";
 
 export default function Login() {
   const [enteredValues, setEnteredValues] = useState({
@@ -6,6 +7,9 @@ export default function Login() {
     password: "",
   });
 
+  const emailInvalid = enteredValues.email.trim() !== "" &&
+    (!enteredValues.email.includes("@") ||
+    !enteredValues.email.includes("gmail.com"));
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,7 +17,7 @@ export default function Login() {
     console.log(enteredValues.email);
   }
 
-  function hadleInputChange(identifier, value) {
+  function handleInputChange(identifier, value) {
     setEnteredValues((prevValues) => ({
       ...prevValues,
       [identifier]: value,
@@ -31,9 +35,12 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
-            onChange={(event) => hadleInputChange('email', event.target.value)}
+            onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredValues.email}
           />
+          <div className="control-error">
+            {emailInvalid && <p>Please enter a valid email address.</p>}
+          </div>
         </div>
 
         <div className="control no-margin">
@@ -42,7 +49,9 @@ export default function Login() {
             id="password"
             type="password"
             name="password"
-            onChange={(event) => hadleInputChange('password', event.target.value)}
+            onChange={(event) =>
+              handleInputChange("password", event.target.value)
+            }
             value={enteredValues.password}
           />
         </div>

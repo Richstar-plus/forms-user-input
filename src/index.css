@@ -121,10 +121,8 @@ fieldset {
 }
 
 .control-error {
-  color: #ffca99;
+  color: #fa432b;
   font-size: 0.8rem;
-  height: 2rem;
-  padding: 0.5rem 0;
 }
 
 .control-error p {
@@ -154,8 +152,8 @@ fieldset {
   cursor: pointer;
 }
 
-.login-btn, .submit {
-  width: 360px;
+.submit {
+  width: 400px;
   background-color: #1877F2;;
 }
 
