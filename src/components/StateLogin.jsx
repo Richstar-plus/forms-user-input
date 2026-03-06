@@ -7,7 +7,12 @@ export default function Login() {
     password: "",
   });
 
-  const emailInvalid = enteredValues.email.trim() !== "" &&
+  const [inputBlurred, setInputBlurred] = useState({
+    email: false,
+    password: false,
+  });
+
+  const emailInvalid = inputBlurred.email &&
     (!enteredValues.email.includes("@") ||
     !enteredValues.email.includes("gmail.com"));
 
@@ -22,6 +27,18 @@ export default function Login() {
       ...prevValues,
       [identifier]: value,
     }));
+
+    setInputBlurred((prevBlurred) => ({
+      ...prevBlurred,
+      [identifier]: false,
+    }));
+  }
+
+  function handleInputBlur(identifier) {
+    setInputBlurred((prevBlurred) => ({
+      ...prevBlurred,
+      [identifier]: true,
+    }));
   }
 
   return (
@@ -35,6 +52,7 @@ export default function Login() {
             id="email"
             type="email"
             name="email"
+            onBlur={() => handleInputBlur("email")}
             onChange={(event) => handleInputChange("email", event.target.value)}
             value={enteredValues.email}
           />
