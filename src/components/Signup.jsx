@@ -1,8 +1,13 @@
 import "./Signup.css";
 
 export default function Signup() {
+  function handelSubmit(event) {
+    event.preventDefault();
+
+    
+  }
   return (
-    <form className="signup-form">
+    <form onSubmit={handelSubmit} className="signup-form">
       <h2>Welcome on board!</h2>
       <p className="welcome">
         We just need a little bit of data from you to get you started 🚀
